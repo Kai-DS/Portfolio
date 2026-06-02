@@ -60,7 +60,7 @@ function CodeCard() {
         </div>
         <div className="pl-8">
           <span className="text-purple-400">return</span>{" "}
-          <span className="text-amber-300">&quot;身近な課題を形にする&quot;</span>
+          <span className="text-amber-300">&quot;動く楽しさを、使える形に。&quot;</span>
         </div>
       </div>
     </div>
@@ -73,7 +73,15 @@ export default function Hero() {
       {/* 背景の控えめなアクセント */}
       <div
         aria-hidden
-        className="pointer-events-none absolute inset-x-0 top-0 -z-10 h-[520px] bg-gradient-to-b from-blue-50/70 to-transparent"
+        className="pointer-events-none absolute inset-x-0 top-0 -z-10 h-[520px] bg-gradient-to-b from-section to-transparent"
+      />
+      <div
+        aria-hidden
+        className="pointer-events-none absolute -top-20 right-0 -z-10 h-72 w-72 rounded-full bg-cyan-400/30 blur-3xl"
+      />
+      <div
+        aria-hidden
+        className="pointer-events-none absolute top-40 -left-24 -z-10 h-72 w-72 rounded-full bg-violet-400/30 blur-3xl"
       />
 
       <div className="mx-auto max-w-content px-6 pb-20 pt-20 sm:pt-28">
@@ -85,7 +93,7 @@ export default function Hero() {
               インターン・就活に向けて活動中
             </span>
 
-            <p className="mt-8 text-sm font-semibold uppercase tracking-widest text-blue-600">
+            <p className="mt-8 inline-block bg-gradient-to-r from-blue-600 via-cyan-500 to-violet-600 bg-clip-text text-sm font-semibold uppercase tracking-widest text-transparent">
               Data Science Student
             </p>
 
@@ -109,14 +117,14 @@ export default function Hero() {
             </div>
 
             <p className="mt-6 max-w-xl text-xl font-medium leading-relaxed text-slate-800">
-              AI・データ分析・Web 開発を通じて、
+              動く楽しさを、
               <br className="hidden sm:block" />
-              身近な課題を形にする。
+              使える形に。
             </p>
 
             <p className="mt-5 max-w-xl text-base leading-relaxed text-slate-600">
-              データサイエンス学部で、統計・機械学習・プログラミングを学んでいます。授業で得た知識を実際の
-              Web アプリやデータ分析の制作に落とし込みながら、「使われるもの」を作ることを大切にしています。
+              データサイエンス学部で、統計・機械学習・プログラミングを学んでいます。授業や制作を通じて得た知識を、Web
+              アプリやデータ分析、体験型のコンテンツ制作に活かしながら、実際に触れて動かせるものを作ることを大切にしています。
             </p>
 
             <div className="mt-6 flex flex-wrap gap-2">
@@ -128,15 +136,9 @@ export default function Hero() {
             <div className="mt-8 flex flex-wrap items-center gap-4">
               <a
                 href="#projects"
-                className="inline-flex items-center justify-center rounded-full bg-blue-600 px-6 py-3 text-sm font-semibold text-white shadow-sm transition-colors hover:bg-blue-700"
+                className="inline-flex items-center justify-center rounded-full bg-gradient-to-r from-blue-600 to-violet-600 px-6 py-3 text-sm font-semibold text-white shadow-sm transition-all hover:from-blue-700 hover:to-violet-700 hover:shadow-md"
               >
                 制作物を見る
-              </a>
-              <a
-                href="#contact"
-                className="inline-flex items-center justify-center rounded-full border border-slate-300 bg-white px-6 py-3 text-sm font-semibold text-slate-700 transition-colors hover:border-slate-400 hover:bg-slate-50"
-              >
-                お問い合わせ
               </a>
               <div className="flex items-center gap-2">
                 {socials.map((s) => (

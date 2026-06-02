@@ -36,10 +36,25 @@ export const skillCategories: SkillCategory[] = [
   },
 ];
 
+export type Certification = {
+  /** 資格・検定名 */
+  name: string;
+  /** 発行機関 */
+  org: string;
+  /** 取得・受験年月（例: "2025年5月"） */
+  date: string;
+  /** 状態（省略時は「取得」扱い） */
+  status?: "取得" | "取得予定" | "学習中";
+};
+
+// 取得した資格をここに追加してください（例を参考に。今は空でOKです）。
+// 例: { name: "基本情報技術者試験", org: "IPA 情報処理推進機構", date: "2025年5月", status: "取得" }
+export const certifications: Certification[] = [];
+
 // いま重点的に学んでいる分野（適宜編集してください）
 export const learningNow: string[] = [
   "深層学習 (PyTorch)",
-  "統計検定 2級",
+  "ML",
   "Next.js",
   "SQL チューニング",
   "クラウド (AWS)",

@@ -24,7 +24,7 @@ const links: ContactLink[] = [
 
 export default function Contact() {
   return (
-    <section id="contact" className="py-24">
+    <section id="contact" className="bg-section py-24">
       <div className="mx-auto max-w-content px-6">
         <Reveal>
           <SectionHeading

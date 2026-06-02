@@ -96,7 +96,7 @@ export default function Projects() {
   const others = projects.filter((p) => !p.featured);
 
   return (
-    <section id="projects" className="bg-slate-50 py-24">
+    <section id="projects" className="py-24">
       <div className="mx-auto max-w-content px-6">
         <Reveal>
           <SectionHeading
