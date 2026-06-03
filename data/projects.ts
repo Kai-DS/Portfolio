@@ -36,7 +36,7 @@ export const projects: Project[] = [
       "単に作品を掲載するだけでなく、授業ごとに整理できる構造にすることで、学習の記録として見返しやすくした。また、コメントやDM機能を入れることで、学内向けのポートフォリオとして交流が生まれる形を意識した。",
     learnings:
       "ユーザー認証、データ保存、コメント投稿、画面遷移など、実用的なWebアプリに必要な基本機能を組み合わせて実装する流れを学んだ。",
-    liveUrl: "https://gms.gdl.jp/~ka1/diet2.php",
+    liveUrl: "https://gms.gdl.jp/~ka1/e-port/index.py/login",
   },
   {
     name: "Diet App",
