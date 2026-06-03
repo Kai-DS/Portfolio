@@ -154,6 +154,12 @@ export default function Hero() {
                   </a>
                 ))}
               </div>
+              <a
+                href="#contact"
+                className="inline-flex items-center justify-center rounded-full border border-slate-300 bg-white px-6 py-3 text-sm font-semibold text-slate-700 transition-colors hover:border-slate-400 hover:bg-slate-50"
+              >
+                お問い合わせ
+              </a>
             </div>
           </div>
 
