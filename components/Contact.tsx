@@ -1,5 +1,6 @@
 import SectionHeading from "./SectionHeading";
 import Reveal from "./Reveal";
+import ContactForm from "./ContactForm";
 
 type ContactLink = {
   label: string;
@@ -34,29 +35,45 @@ export default function Contact() {
           />
         </Reveal>
 
-        <div className="mx-auto grid max-w-md gap-4">
-          {links.map((link, i) => (
-            <Reveal key={link.label} delay={i * 80} className="h-full">
-              <a
-                href={link.href}
-                target={link.href.startsWith("http") ? "_blank" : undefined}
-                rel={link.href.startsWith("http") ? "noreferrer" : undefined}
-                className="group flex h-full items-center gap-4 rounded-xl border border-slate-200 bg-white p-5 shadow-sm transition-all hover:-translate-y-0.5 hover:border-blue-200 hover:shadow-md"
-              >
-                <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-lg bg-slate-100 text-slate-700 transition-colors group-hover:bg-blue-50 group-hover:text-blue-600">
-                  {link.icon}
-                </span>
-                <span className="min-w-0">
-                  <span className="block text-sm font-semibold text-slate-900">
-                    {link.label}
-                  </span>
-                  <span className="block truncate text-sm text-slate-500">
-                    {link.value}
-                  </span>
-                </span>
-              </a>
+        <div className="mx-auto grid max-w-4xl items-start gap-8 lg:grid-cols-5">
+          {/* フォーム（メールアドレスは表示せず受信箱に届く） */}
+          <div className="lg:col-span-3">
+            <Reveal>
+              <ContactForm />
             </Reveal>
-          ))}
+          </div>
+
+          {/* SNS などのリンク */}
+          <div className="lg:col-span-2">
+            <Reveal delay={80}>
+              <p className="mb-3 text-sm text-slate-500">
+                SNS からもお気軽にどうぞ。
+              </p>
+              <div className="grid gap-4">
+                {links.map((link) => (
+                  <a
+                    key={link.label}
+                    href={link.href}
+                    target={link.href.startsWith("http") ? "_blank" : undefined}
+                    rel={link.href.startsWith("http") ? "noreferrer" : undefined}
+                    className="group flex items-center gap-4 rounded-xl border border-slate-200 bg-white p-5 shadow-sm transition-all hover:-translate-y-0.5 hover:border-blue-200 hover:shadow-md"
+                  >
+                    <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-lg bg-slate-100 text-slate-700 transition-colors group-hover:bg-blue-50 group-hover:text-blue-600">
+                      {link.icon}
+                    </span>
+                    <span className="min-w-0">
+                      <span className="block text-sm font-semibold text-slate-900">
+                        {link.label}
+                      </span>
+                      <span className="block truncate text-sm text-slate-500">
+                        {link.value}
+                      </span>
+                    </span>
+                  </a>
+                ))}
+              </div>
+            </Reveal>
+          </div>
         </div>
       </div>
     </section>
