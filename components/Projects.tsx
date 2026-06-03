@@ -1,5 +1,6 @@
 import SectionHeading from "./SectionHeading";
 import ProjectCard from "./ProjectCard";
+import ProjectGallery from "./ProjectGallery";
 import Reveal from "./Reveal";
 import { projects } from "@/data/projects";
 
@@ -10,29 +11,37 @@ function FeaturedProject() {
   return (
     <article className="mb-10 overflow-hidden rounded-2xl border border-slate-800 bg-slate-950 text-slate-100 shadow-lg">
       <div className="grid md:grid-cols-2">
-        {/* ネオン筐体のビジュアル */}
-        <div className="flex aspect-[16/10] flex-col items-center justify-center gap-5 bg-gradient-to-b from-slate-900 to-black p-8 md:aspect-auto">
-          <p
-            className="text-3xl font-black tracking-[0.2em] text-cyan-300 sm:text-4xl"
-            style={{ textShadow: "0 0 14px rgba(34,211,238,0.85)" }}
-          >
-            NEON JACK
-          </p>
-          <div className="flex gap-3">
-            {[7, 7, 7].map((n, i) => (
-              <div
-                key={i}
-                className="flex h-16 w-12 items-center justify-center rounded-md border border-cyan-400/60 bg-slate-900 text-2xl font-bold text-cyan-300"
-                style={{ boxShadow: "0 0 12px rgba(34,211,238,0.4)" }}
-              >
-                {n}
-              </div>
-            ))}
+        {/* スクリーンショット */}
+        {project.images && project.images.length > 0 ? (
+          <ProjectGallery
+            images={project.images}
+            alt={project.name}
+            className="h-60 w-full md:h-full md:min-h-[280px]"
+          />
+        ) : (
+          <div className="flex aspect-[16/10] flex-col items-center justify-center gap-5 bg-gradient-to-b from-slate-900 to-black p-8 md:aspect-auto">
+            <p
+              className="text-3xl font-black tracking-[0.2em] text-cyan-300 sm:text-4xl"
+              style={{ textShadow: "0 0 14px rgba(34,211,238,0.85)" }}
+            >
+              NEON JACK
+            </p>
+            <div className="flex gap-3">
+              {[7, 7, 7].map((n, i) => (
+                <div
+                  key={i}
+                  className="flex h-16 w-12 items-center justify-center rounded-md border border-cyan-400/60 bg-slate-900 text-2xl font-bold text-cyan-300"
+                  style={{ boxShadow: "0 0 12px rgba(34,211,238,0.4)" }}
+                >
+                  {n}
+                </div>
+              ))}
+            </div>
+            <span className="rounded-full border border-cyan-400/50 px-4 py-1 text-xs font-semibold tracking-widest text-cyan-300">
+              MAX BET
+            </span>
           </div>
-          <span className="rounded-full border border-cyan-400/50 px-4 py-1 text-xs font-semibold tracking-widest text-cyan-300">
-            MAX BET
-          </span>
-        </div>
+        )}
 
         {/* 内容 */}
         <div className="p-8 sm:p-10">

@@ -13,6 +13,8 @@ export type Project = {
   githubUrl?: string;
   /** 最も目立たせる Featured Project */
   featured?: boolean;
+  /** スクリーンショット画像（複数可。先頭がカバー画像） */
+  images?: string[];
 };
 
 export const projects: Project[] = [
@@ -26,6 +28,11 @@ export const projects: Project[] = [
     learnings:
       "地図情報とAI生成を組み合わせることで、ユーザーの入力に応じて内容が変化するWebアプリの設計を学んだ。また、HTML/PDFとして出力することで、Web上の操作を実際に持ち歩ける成果物につなげる考え方を身につけた。",
     liveUrl: "https://gms.gdl.jp/~ka1/Triplet/index.py/",
+    images: [
+      "/images/projects/Triplet/1.png",
+      "/images/projects/Triplet/2.png",
+      "/images/projects/Triplet/3.png",
+    ],
   },
   {
     name: "e-port",
@@ -37,6 +44,7 @@ export const projects: Project[] = [
     learnings:
       "ユーザー認証、データ保存、コメント投稿、画面遷移など、実用的なWebアプリに必要な基本機能を組み合わせて実装する流れを学んだ。",
     liveUrl: "https://gms.gdl.jp/~ka1/e-port/index.py/login",
+    images: ["/images/projects/e-port/1.png"],
   },
   {
     name: "Diet App",
@@ -48,6 +56,7 @@ export const projects: Project[] = [
     learnings:
       "PHPを用いたWebページの処理や、条件に応じて表示内容を変える基本的な仕組みを学んだ。また、実際の生活課題をWebアプリとして形にする流れを経験した。",
     liveUrl: "https://gms.gdl.jp/~ka1/diet2.php",
+    images: ["/images/projects/diet/1.png"],
   },
   {
     name: "NEON JACK",
@@ -60,5 +69,6 @@ export const projects: Project[] = [
       "JavaScript でのアニメーションや状態管理を通じて、見た目と遊びやすさを両立させるゲーム実装の難しさと面白さを学んだ。",
     liveUrl: "https://casino-front-nine.vercel.app",
     featured: true,
+    images: ["/images/projects/SLOT/1.png"],
   },
 ];
