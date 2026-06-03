@@ -45,11 +45,17 @@ export default function ProjectGallery({
   images,
   alt,
   className = "aspect-[16/10] w-full",
+  fit = "cover",
+  bgClass = "bg-slate-100",
 }: {
   images: string[];
   alt: string;
   /** サムネイル（トリガー）のサイズ用クラス */
   className?: string;
+  /** 画像の表示方法。contain は全体表示（カードのカバーは cover） */
+  fit?: "cover" | "contain";
+  /** サムネイル背景（contain 時のレターボックス部分の色） */
+  bgClass?: string;
 }) {
   const [open, setOpen] = useState(false);
   const [index, setIndex] = useState(0);
@@ -86,7 +92,7 @@ export default function ProjectGallery({
     <>
       {/* カード上のカバー（左右で切り替え・クリックで拡大） */}
       <div
-        className={`group/thumb relative overflow-hidden bg-slate-100 ${className}`}
+        className={`group/thumb relative overflow-hidden ${bgClass} ${className}`}
       >
         <button
           type="button"
@@ -98,8 +104,10 @@ export default function ProjectGallery({
             src={images[index]}
             alt={alt}
             fill
-            sizes="(max-width: 768px) 100vw, 33vw"
-            className="object-cover transition-transform duration-300 group-hover/thumb:scale-105"
+            sizes="(max-width: 768px) 100vw, 50vw"
+            className={`transition-transform duration-300 group-hover/thumb:scale-105 ${
+              fit === "contain" ? "object-contain" : "object-cover"
+            }`}
           />
           <span className="absolute inset-0 bg-slate-900/0 transition-colors group-hover/thumb:bg-slate-900/10" />
         </button>

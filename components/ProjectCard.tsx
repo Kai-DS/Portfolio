@@ -72,14 +72,16 @@ export default function ProjectCard({
               {project.highlights}
             </dd>
           </div>
-          <div>
-            <dt className="text-xs font-semibold uppercase tracking-wider text-blue-600">
-              学んだこと
-            </dt>
-            <dd className="mt-1 text-sm leading-relaxed text-slate-600">
-              {project.learnings}
-            </dd>
-          </div>
+          {project.learnings && (
+            <div>
+              <dt className="text-xs font-semibold uppercase tracking-wider text-blue-600">
+                学んだこと
+              </dt>
+              <dd className="mt-1 text-sm leading-relaxed text-slate-600">
+                {project.learnings}
+              </dd>
+            </div>
+          )}
         </dl>
 
         {project.liveUrl && (

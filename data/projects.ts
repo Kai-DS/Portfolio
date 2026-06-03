@@ -5,14 +5,16 @@ export type Project = {
   tech: string[];
   /** 工夫した点 */
   highlights: string;
-  /** 学んだこと */
-  learnings: string;
+  /** 学んだこと（任意） */
+  learnings?: string;
   /** 公開サイト / デモの URL（仮の場合は "#"） */
   liveUrl?: string;
   /** GitHub リポジトリの URL */
   githubUrl?: string;
   /** 最も目立たせる Featured Project */
   featured?: boolean;
+  /** Featured カードの配色テーマ（既定は neon） */
+  theme?: "neon" | "wine";
   /** スクリーンショット画像（複数可。先頭がカバー画像） */
   images?: string[];
 };
@@ -59,9 +61,21 @@ export const projects: Project[] = [
     images: ["/images/projects/diet/1.png"],
   },
   {
+    name: "CASINO HUB",
+    description:
+      "複数のカジノ風ゲームを1つのロビーから遊べる、無料チップ専用のシミュレーションゲーム Web アプリケーション。カジノに入場してテーブルに座る体験を重視し、緑のポーカーテーブル上に配られたトランプカードから各ゲーム（NEON JACK／Video Poker など）へ入場できる仕組みとして制作した。現金・換金要素は一切持たせていない。現在も開発を続けており、収録ゲームや演出を追加しながら作り込んでいる制作途中のプロジェクト。",
+    tech: ["TypeScript", "React", "Vite", "Tailwind CSS", "Zustand", "Vitest"],
+    highlights:
+      "単なるゲーム一覧ではなく「カジノに入場する体験」を軸に、ロビーのカード配布演出からレート選択・プレイ・チップ残高や履歴の保存までを一つの流れでつなげた。設計ではゲームロジックを UI から純粋関数として分離し、各ゲームはアダプタ層だけでカジノ経済に接続。新しいゲームを足してもロビーを書き換えずに拡張でき、純ロジックには単体テストも用意した。",
+    liveUrl: "https://casino-site-base.vercel.app/",
+    featured: true,
+    theme: "wine",
+    images: ["/images/projects/casino-site/1.png"],
+  },
+  {
     name: "NEON JACK",
     description:
-      "スロット風の Web ゲーム。黒基調と青ネオンの筐体デザインをベースに、3 リール・停止ボタン・MAXBET・レバー・カウンター表示などを実装した。見た目だけでなく、ゲームとして遊べる操作感と演出を意識して制作した。",
+      "CASINO HUB に収録するゲームの一つとして制作した、スロット風の Web ゲーム。黒基調と青ネオンの筐体デザインをベースに、3 リール・停止ボタン・MAXBET・レバー・カウンター表示などを実装した。見た目だけでなく、ゲームとして遊べる操作感と演出を意識して制作した。",
     tech: ["HTML", "CSS", "JavaScript"],
     highlights:
       "黒基調 × 青ネオンの筐体デザインを再現し、3 リール・停止ボタン・MAXBET・レバー・カウンターなど、実機のような操作感と演出にこだわった。",
