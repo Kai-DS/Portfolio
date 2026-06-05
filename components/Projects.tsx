@@ -46,6 +46,7 @@ function FeaturedProject({ project }: { project: Project }) {
             className="h-60 w-full md:h-full md:min-h-[300px]"
             fit="contain"
             bgClass={t.imgBg}
+            href={project.liveUrl}
           />
         ) : (
           <div

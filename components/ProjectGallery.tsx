@@ -47,6 +47,7 @@ export default function ProjectGallery({
   className = "aspect-[16/10] w-full",
   fit = "cover",
   bgClass = "bg-slate-100",
+  href,
 }: {
   images: string[];
   alt: string;
@@ -56,6 +57,8 @@ export default function ProjectGallery({
   fit?: "cover" | "contain";
   /** サムネイル背景（contain 時のレターボックス部分の色） */
   bgClass?: string;
+  /** 指定すると、写真クリックで拡大ではなくこの URL を開く */
+  href?: string;
 }) {
   const [open, setOpen] = useState(false);
   const [index, setIndex] = useState(0);
@@ -88,29 +91,47 @@ export default function ProjectGallery({
 
   const multiple = images.length > 1;
 
+  const cover = (
+    <>
+      <Image
+        src={images[index]}
+        alt={alt}
+        fill
+        sizes="(max-width: 768px) 100vw, 50vw"
+        className={`transition-transform duration-300 group-hover/thumb:scale-105 ${
+          fit === "contain" ? "object-contain" : "object-cover"
+        }`}
+      />
+      <span className="absolute inset-0 bg-slate-900/0 transition-colors group-hover/thumb:bg-slate-900/10" />
+    </>
+  );
+
   return (
     <>
-      {/* カード上のカバー（左右で切り替え・クリックで拡大） */}
+      {/* カード上のカバー（左右で切り替え・クリックでサイトへ／拡大） */}
       <div
         className={`group/thumb relative overflow-hidden ${bgClass} ${className}`}
       >
-        <button
-          type="button"
-          onClick={() => setOpen(true)}
-          aria-label={`${alt} のスクリーンショットを拡大表示`}
-          className="absolute inset-0 h-full w-full"
-        >
-          <Image
-            src={images[index]}
-            alt={alt}
-            fill
-            sizes="(max-width: 768px) 100vw, 50vw"
-            className={`transition-transform duration-300 group-hover/thumb:scale-105 ${
-              fit === "contain" ? "object-contain" : "object-cover"
-            }`}
-          />
-          <span className="absolute inset-0 bg-slate-900/0 transition-colors group-hover/thumb:bg-slate-900/10" />
-        </button>
+        {href ? (
+          <a
+            href={href}
+            target="_blank"
+            rel="noreferrer"
+            aria-label={`${alt} のサイトを開く`}
+            className="absolute inset-0 h-full w-full"
+          >
+            {cover}
+          </a>
+        ) : (
+          <button
+            type="button"
+            onClick={() => setOpen(true)}
+            aria-label={`${alt} のスクリーンショットを拡大表示`}
+            className="absolute inset-0 h-full w-full"
+          >
+            {cover}
+          </button>
+        )}
 
         {multiple && (
           <>

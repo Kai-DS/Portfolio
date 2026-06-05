@@ -38,7 +38,11 @@ export default function ProjectCard({
 
       {project.images && project.images.length > 0 && (
         <div className="relative">
-          <ProjectGallery images={project.images} alt={project.name} />
+          <ProjectGallery
+            images={project.images}
+            alt={project.name}
+            href={project.liveUrl}
+          />
           {typeof index === "number" && (
             <span
               aria-hidden
